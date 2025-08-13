@@ -23,10 +23,16 @@ Pic.3 Taproot
 
 ## 锁定脚本比较
 1. **legacy锁定脚本(P2PKH)**
-    * OP_DUP(复制栈顶) OP_HASH160(对复制内容哈希) 20 byte的hash OP_EQUALVERIFY(判等) OP_CHECKSIG(验证公钥和签名)
+    * OP_DUP(复制栈顶) :0x76
+    * OP_HASH160(对复制内容哈希) :0xA9
+    * 20 byte的hash :后续的20字节
+    * OP_EQUALVERIFY(判等) ：0x88
+    * OP_CHECKSIG(验证公钥和签名)：0xAC
     * e.g.：`76a914649092c12a0f2f235acdecd129942e721c772d0188ac`
 2. **segwit锁定脚本(P2WPKH)**
-    * OP_0 20byte的hash
+![alt text](image/segwit_Script.png)
+    * OP_0：0
+    * OP_PUSHBYTES_20：20byte的hash
     * e.g.：`0014946e577446d36f1fdb7ae1f16e9ec36ee3a5f24b`
 3. **taproot锁定脚本(P2TR)**
     * OP_PUSHNUM_1 32byte的hash 
